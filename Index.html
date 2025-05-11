@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome {% if current_user.is_authenticated %}{{ current_user.phone }}{% endif %}</h1>
+    {% if current_user.is_authenticated %}
+        <p>Balance: ${{ current_user.balance }}</p>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a> | <a href="/register">Register</a>
+    {% endif %}
+</body>
+</html>
